@@ -2,7 +2,7 @@ package com.procourier.model;
 
 import java.util.Objects;
 
-public class Product {
+public final class Product {
     private Long price;
     private String name;
     private String description;
@@ -15,7 +15,26 @@ public class Product {
         this.weight = Objects.requireNonNull(weight);
     }
 
-    public static void main(String[] args) {
-        Product p = new Product(12L,null,"description", 8L);
+    private static Long checkWeight (Long weight) {
+        if (weight <= 0) {
+            throw new IllegalArgumentException("Weight must be positive");
+        }
+        return Objects.requireNonNull(weight);
+    }
+
+    public Long getPrice() {
+        return price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Long getWeight() {
+        return weight;
     }
 }
