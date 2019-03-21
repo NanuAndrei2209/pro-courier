@@ -23,7 +23,7 @@ public final class CollectionRepository implements OrderRepository {
 
     @Override
     public Long put(Order item) {
-        orders.put(item.getId(), item)
+        orders.put(item.getId(), item);
         return item.getId();
     }
 
